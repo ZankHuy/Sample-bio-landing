@@ -7,154 +7,63 @@ Mot template repo hoan chinh giup ban tao bio link va landing page chi trong vai
 - **Bio Link (`/bio`)**: Trang gioi thieu ban than voi cac social links. Background gradient customizable, icons cho moi platform, responsive tren moi thiet bi.
 - **Landing Page (`/landing`)**: Trang gioi thieu dich vu voi hero section, service cards, va form thu thap lead.
 - **Google Forms Integration**: Form lead tu dong dien vao Google Form cua ban - khong can backend, khong can database.
-- **AI Agent Friendly**: Chi can 2 file config de chinh sua, AI Agents se tu dong cau hinh chi voi mot prompt.
+- **AI Agent Friendly**: Chi can cho AI Agent doc SETUP.md, AI se tu dong cau hinh tat ca.
 
 ---
 
 ## Huong dan Setup (Chi 3 buoc)
 
-### Buoc 1: Clone repo ve may
+### Buoc 1: Tao repo cua ban tu template nay
 
-Truy cap repo tren GitHub, click nut **"Use this template"** (neu dung template) hoac clone truc tiep:
-
-```bash
-git clone https://github.com/ZankHuy/Sample-bio-landing.git
-cd Sample-bio-landing
-```
-
-Hoac tai file ZIP ve va giai nen.
+1. Truy cap: [https://github.com/ZankHuy/Sample-bio-landing](https://github.com/ZankHuy/Sample-bio-landing)
+2. Click nut **"Use this template"** (nut xanh phia tren)
+3. Nhap ten repo, vd: `my-brand-page`
+4. Chon **Public** -> Click **"Create repository"**
 
 ### Buoc 2: Mo repo bang Cursor (Antigravity)
 
-1. Mo **Cursor** (Antigravity) len
-2. Vao menu `File` -> `Open Folder` -> Chon thu muc `Sample-bio-landing`
-3. Mo terminal trong Cursor: `Ctrl + `` `` hoac `View` -> `Terminal`
-4. Chay lenh cai dat:
+1. Sau khi tao xong, copy link repo cua ban (vd: `https://github.com/USERNAME/my-brand-page.git`)
+2. Mo **Cursor** (Antigravity) len
+3. Vao menu `File` -> `Open Folder` -> Chon thu muc `my-brand-page`
+4. Mo terminal trong Cursor: nhan `Ctrl + ` `` `` `` `` hoac vao `View` -> `Terminal`
 
-```bash
-npm install
+### Buoc 3: Khoi dong AI Agent
+
+1. Trong Cursor, tim nut **"Agent"** o than ben trai (biểu tượng robot)
+2. Click de mo AI Agent panel
+3. Paste prompt sau vao:
+
+```
+Hay doc va lam theo huong dan trong file SETUP.md de cau hinh website nay. Bat dau ngay.
 ```
 
-### Buoc 3: Khoi dong website
-
-```bash
-npm run dev
-```
-
-Truy cap `http://localhost:3000` de xem website.
-
----
-
-## Cau hinh noi dung (Sau khi setup xong)
-
-Xem file [SETUP.md](SETUP.md) de biet chi tiet cach cau hinh website bang AI Agents.
-
-Tuy nhien, ban co the thu lam truc tiep:
-
-### 1. Cau hinh Bio Link
-
-Chinh sua `src/config/personal-info.ts`:
-
-```typescript
-export const bioConfig = {
-  name: "Ho Va Ten",
-  title: "Mo ta / Chuc danh",
-  avatar: "/avatar-placeholder.svg",
-  background: {
-    type: "gradient",
-    colors: ["#667eea", "#764ba2"],  // doi mau gradient
-  },
-  links: [
-    {
-      id: "phone",
-      label: "Dien thoai",
-      value: "0912 345 678",
-      icon: "phone",
-      url: "tel:0912345678",
-      color: "#25D366",
-    },
-    // them link moi o day
-  ],
-};
-```
-
-### 2. Cau hinh Landing Page
-
-Chinh sua `src/config/services-config.ts`:
-
-```typescript
-export const landingConfig = {
-  brand: {
-    name: "Ten Brand",
-    tagline: "Slogan cua ban",
-  },
-  hero: {
-    headline: "Tieu de chinh",
-    subheadline: "Mo ta phu",
-    cta_text: "Dang ky ngay",
-    cta_scroll_to: "lead-form",
-  },
-  services: [
-    {
-      id: "service-1",
-      title: "Ten dich vu",
-      description: "Mo ta chi tiet",
-      icon: "star",           // lucide-react icon
-      features: ["Tinh nang 1", "Tinh nang 2"],
-      image: "/service-1.svg",
-    },
-  ],
-  leadForm: {
-    enabled: true,
-    google_form_url: "https://docs.google.com/forms/d/e/xxx/viewform",
-    field_mapping: {
-      name: "entry.XXXXXXX",
-      phone: "entry.XXXXXXX",
-      email: "entry.XXXXXXX",
-      notes: "entry.XXXXXXX",
-    },
-    form_title: "Dang ky tu van mien phi",
-    success_message: "Cam on ban!",
-    submit_button_text: "Gui thong tin",
-  },
-  footer: {
-    copyright: "© 2026 Ten Brand",
-    contact_info: "Hotline: 0912 345 678",
-  },
-};
-```
+4. AI Agent se tu dong doc SETUP.md, hoi ban cac thong tin can thiet, va tu dong chinh sua code.
 
 ---
 
 ## Dua website len Internet (Deploy)
 
-Sau khi chinh sua xong noi dung, lam theo cac buoc sau de dua website len mang:
+Sau khi AI Agent cau hinh xong, lam theo buoc sau de dua website len mang:
 
-### Buoc 1: Tao repo moi tren GitHub
+### Buoc 1: Push code cua ban len GitHub
 
-1. Truy cap [github.com](https://github.com)
-2. Dang nhap tai khoan GitHub
-3. Click nut **"+"** (dau cong) o goc phai tren -> **"New repository"**
-4. Nhap ten repo, vd: `my-brand-page`
-5. Chon **Public** (de deploy duoc)
-6. Click **"Create repository"**
-
-### Buoc 2: Ket noi va push code len repo moi
-
-Trong terminal cua Cursor, chay cac lenh sau (thay `USERNAME` bang ten tai khoan GitHub cua ban):
+Trong terminal cua Cursor, chay cac lenh sau:
 
 ```bash
-# Xoa remote cu
-git remote remove origin
+# Thay USERNAME bang ten tai khoan GitHub cua ban
+git remote set-url origin https://github.com/USERNAME/my-brand-page.git
 
-# Them remote moi voi repo cua ban
-git remote add origin https://github.com/USERNAME/my-brand-page.git
+# Them tat ca thay doi
+git add .
 
-# Push code
+# Commit
+git commit -m "Cau hinh noi dung website"
+
+# Push len GitHub
 git push -u origin main
 ```
 
-### Buoc 3: Deploy voi GitHub Pages (Mien phi!)
+### Buoc 2: Deploy voi GitHub Pages (Mien phi!)
 
 1. Sau khi push thanh cong, vao **Settings** cua repo tren GitHub
 2. Cuon xuong muc **"Pages"** o than ben trai
@@ -166,26 +75,6 @@ git push -u origin main
 
 ```
 https://USERNAME.github.io/my-brand-page
-```
-
-> Neu muon su dung ten mien rieng, co the them custom domain trong muc **Custom domain** cua GitHub Pages.
-
----
-
-## Lenh hay su dung
-
-```bash
-# Cai dat thu vien (sau khi clone repo)
-npm install
-
-# Khoi dong che do phat trien (xem website)
-npm run dev
-
-# Build file san sang deploy
-npm run build
-
-# Don dep file tam
-npm run clean
 ```
 
 ---

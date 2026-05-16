@@ -1,222 +1,183 @@
-# Bio Link + Landing Page Template
+# SETUP.md - Huong dan cau hinh cho AI Agent
 
-## Huong dan Cai dat Chi tiet
+Day la file huong dan chi tiet de AI Agent cau hinh website Bio Link + Landing Page.
 
-Huong dan nay giup AI Agents cau hinh toan bo website chi bang cach chinh sua 2 file config. Ban khong can biet lap trinh - chi can cung cap thong tin va AI se lam phan con lai.
+## Nhiem vu cua AI Agent
 
----
+AI Agent can thuc hien 3 nhiem vu chinh:
 
-## Buoc 1: Khoi Tao Project
+### 1. Cai dat dependencies va khoi dong dev server
+
+Chay cac lenh:
 
 ```bash
-# Clone repo ve may
-git clone <your-repo-url>
-cd Sample-bio-landing
-
-# Cai dat dependencies
 npm install
-
-# Khoi dong dev server
 npm run dev
 ```
 
-Truy cap `http://localhost:3000` de xem truoc website.
+### 2. Thu thap thong tin tu nguoi dung
+
+Hoi nguoi dung cac thong tin can thiet (xem chi tiet ben duoi).
+
+### 3. Chinh sua code
+
+Sau khi thu thap du thong tin, cap nhat cac file config tuong ung.
 
 ---
 
-## Buoc 2: Cau Hinh voi AI Agents
+## Phan 1: Cau hinh Bio Link
 
-Mo terminal (hoac Cursor IDE), goi prompt:
+File can chinh sua: `src/config/personal-info.ts`
 
-```
-Hay doc va lam theo huong dan trong SETUP.md de cau hinh project nay.
-```
+### Thong tin nguoi dung can cung cap
 
-AI Agents se tu dong:
+Hoi nguoi dung tung cau hoi sau:
 
-1. Doc 2 file config: `src/config/personal-info.ts` va `src/config/services-config.ts`
-2. Hoi ban lan luot cac thong tin ben duoi
-3. Tu dong dien vao cac file config
-4. Khong can ban lam gi them
+**Thong tin co ban:**
+1. Ho va ten hien thi tren trang bio
+2. Mo ta ngan / Chuc danh (vi du: "Chuyen gia tu van dinh cu", "Freelancer", ...)
+3. Link anh avatar (neu co, neu khong thi giu placeholder)
 
----
+**Social Links - Cac nut bam tren trang bio:**
 
-## Buoc 3: Cau Hinh Bio Link (src/config/personal-info.ts)
+| # | Hoi nguoi dung | Vi du |
+|---|----------------|-------|
+| 1 | So dien thoai | 0912 345 678 |
+| 2 | Link Zalo | https://zalo.me/0912345678 |
+| 3 | Link Facebook ca nhan | https://facebook.com/username |
+| 4 | Link TikTok | https://tiktok.com/@username |
+| 5 | Link YouTube (neu co) | https://youtube.com/@username |
+| 6 | Link Instagram (neu co) | https://instagram.com/username |
+| 7 | Link Shopee (neu co) | https://shopee.vn/username |
+| 8 | Link website rieng (neu co) | https://example.com |
+| 9 | Link LinkedIn (neu co) | https://linkedin.com/in/username |
+| 10 | Cac link khac nguoi dung muon them | ... |
 
-AI se hoi ban:
+**Tuy chinh Background:**
 
-### Thong tin ca nhan
+| # | Hoi nguoi dung | Vi du |
+|---|----------------|-------|
+| 1 | Ban muon background la gradient hay mot mau don? | gradient / solid |
+| 2 | Neu gradient - nhap 2 ma mau (hex) | #667eea, #764ba2 |
+| 3 | Neu solid - nhap 1 ma mau (hex) | #1a1a2e |
 
-| Cau hoi | Vi du |
-|---------|-------|
-| Ho va ten | Nguyen Van A |
-| Mo ta ngan / Chuc danh | Chuyen gia tu van |
-| Link avatar | Duong dan anh hoac de trong de giu placeholder |
+### Thuc hien
 
-### Thong tin lien he
-
-| Cau hoi | Vi du |
-|---------|-------|
-| So dien thoai | 0912 345 678 |
-| Zalo | 0912 345 678 |
-| Email | email@example.com |
-| Facebook link | https://facebook.com/username |
-| TikTok link | https://tiktok.com/@username |
-
-### Xac dinh cac social link
-
-Ban co the them cac link khong gioi han. AI se hoi ban co muon them:
-
-- YouTube
-- Instagram
-- Shopee / Lazada
-- Website rieng
-- Zalo Page
-- Fanpage
-- WhatsApp
-- Telegram
-- LinkedIn
-- ...bat cu platform nao
-
-### Tuy chinh Background
-
-| Cau hoi | Vi du |
-|---------|-------|
-| Loai background | gradient / solid / image |
-| 2 mau gradient (hex) | #667eea va #764ba2 |
-| Hoac 1 mau solid | #1a1a2e |
-| Hoac link anh nen | /bg.jpg |
+1. Doc file `src/config/personal-info.ts` hien tai
+2. Thay cac gia tri trong `bioConfig` voi thong tin nguoi dung da cung cap
+3. Them cac social links vao mang `links` theo cu phap cua file
+4. Giu placeholder neu nguoi dung khong cung cap avatar
 
 ---
 
-## Buoc 4: Cau Hinh Landing Page (src/config/services-config.ts)
+## Phan 2: Cau hinh Landing Page
 
-AI se hoi ban:
+File can chinh sua: `src/config/services-config.ts`
 
-### Thong tin thuong hieu
+### Thong tin nguoi dung can cung cap
 
-| Cau hoi | Vi du |
-|---------|-------|
-| Ten dich vu / Brand | MyService |
-| Slogan | Giai phap tot nhat cho ban |
-| Link logo | Duong dan anh hoac de trong de giu placeholder |
+**Thong tin thuong hieu:**
 
-### Hero Section
+| # | Hoi nguoi dung | Vi du |
+|---|----------------|-------|
+| 1 | Ten thuong hieu / Ten dich vu | MyService |
+| 2 | Slogan | Giai phap tot nhat cho ban |
+| 3 | Link logo (neu co) | /logo-placeholder.svg |
 
-| Cau hoi | Vi du |
-|---------|-------|
-| Tieu de chinh (H1) | Giai phap chuyen nghiep cho cuoc song |
-| Mo ta phu | Chung toi mang den dich vu tot nhat |
-| Nut CTA | Dang ky ngay |
-| Scroll toi | lead-form |
+**Hero Section (Phan gioi thieu chinh):**
 
-### Noi dung dich vu
+| # | Hoi nguoi dung | Vi du |
+|---|----------------|-------|
+| 1 | Tieu de chinh (H1) - noi dung no bat nguoi nhin thay | Giai phap chuyen nghiep cho cuoc song |
+| 2 | Mo ta phu - giai thich them | Chung toi mang den dich vu tot nhat |
+| 3 | Text nut goi hanh dong | Dang ky ngay |
+| 4 | Link logo brand (neu co) | /logo-placeholder.svg |
 
-Ban co the copy/paste noi dung tu:
+**Services (Cac dich vu/gioi thieu):**
 
-- **File Word (.docx)** - AI doc noi dung va trich xuat
-- **File PowerPoint (.pptx)** - AI doc tung slide
-- **Canva** - Copy text tu Canva hoac export ra PDF
+Hoi nguoi dung:
 
-AI se hoi ban ve:
+| # | Hoi nguoi dung | Vi du |
+|---|----------------|-------|
+| 1 | Ban muon gioi thieu bao nhieu dich vu? | 3 |
+| 2 | Ten dich vu 1 | Tu van ca nhan |
+| 3 | Mo ta dich vu 1 | Noi dung trich xuat tu file cua ban |
+| 4 | Cac tinh nang cua dich vu 1 (3-5 cai) | Co the goi y cac tinh nang pho bien |
+| 5 | Ten dich vu 2 | ... |
+| 6 | ... | ... |
 
-| Cau hoi | Vi du |
-|---------|-------|
-| So luong dich vu | 3 |
-| Ten dich vu 1 | Tu van ca nhan |
-| Mo ta dich vu 1 | Noi dung trich xuat tu file cua ban |
-| Tinh nang dich vu 1 | Danh sach 3-5 tinh nang |
-| Ten dich vu 2 | ... |
-| ... | ... |
+**Google Forms (Form thu thap thong tin khach hang):**
 
----
+Day la phan quan trong - no giup form tren website tu dong dien vao Google Form cua ban.
 
-## Buoc 5: Cau Hinh Google Forms
+Hoi nguoi dung:
 
-Day la phan quan trong - form thu thap lead se tu dong dien vao Google Form cua ban.
+| # | Hoi nguoi dung | Vi du |
+|---|----------------|-------|
+| 1 | Ban da co Google Form chua? Neu chua, huong dan tao | ... |
+| 2 | Link Google Form | https://docs.google.com/forms/d/e/xxx/viewform |
+| 3 | Entry ID cho truong Ho ten | entry.1234567890 |
+| 4 | Entry ID cho truong So dien thoai | entry.2345678901 |
+| 5 | Entry ID cho truong Email | entry.3456789012 |
+| 6 | Entry ID cho truong Ghi chu | entry.4567890123 |
 
-### Tao Google Form
+**Cach lay Entry ID:**
+1. Mo Google Form -> nhan **Preview** de xem
+2. Click chuot phai -> **Inspect** -> tim cac input co `name="entry.XXXXX"`
+3. Moi truong `entry.XXXXX` chinh la ID cua truong do
 
-1. Di den [Google Forms](https://forms.google.com)
-2. Tao form moi voi 4 truong:
-   - **Ten** (Text)
-   - **So dien thoai** (Text)
-   - **Email** (Text)
-   - **Ghi chu** (Text)
-3. Nhan **Send** → chon tab **< >** (Embed HTML)
+**Neu nguoi dung chua co Google Form, huong dan tao nhanh:**
+
+1. Di den [forms.google.com](https://forms.google.com)
+2. Tao form moi voi 4 truong: Ten, So dien thoai, Email, Ghi chu
+3. Nhan **Send** -> chon tab **<>** (Embed)
 4. Copy link tu `src="https://docs.google.com/forms/..."`
+5. Lay Entry ID theo cach ben tren
 
-### Lay Entry ID
+**Noi dung Footer:**
 
-1. Mo Google Form → nhan **Preview** (binh an mat) de xem
-2. Click chuot phai → **Inspect** → tim input co `name="entry.XXXXX"`
-3. moi truong` entry.XXXXX` chinh la ID cua truong do
+| # | Hoi nguoi dung | Vi du |
+|---|----------------|-------|
+| 1 | Text Copyright | © 2026 Ten Brand |
+| 2 | Thong tin lien he hien thi | Hotline: 0912 345 678 |
 
-### AI se hoi ban
+### Thuc hien
 
-| Cau hoi | Vi du |
-|---------|-------|
-| Link Google Form | https://docs.google.com/forms/d/e/xxx/viewform |
-| Entry ID cho Ten | entry.1234567890 |
-| Entry ID cho So dien thoai | entry.2345678901 |
-| Entry ID cho Email | entry.3456789012 |
-| Entry ID cho Ghi chu | entry.4567890123 |
-| Tieu de form | Dang ky tu van mien phi |
-| Text nut Submit | Gui thong tin |
-| Thong bao thanh cong | Cam on ban! Chung toi se lien he som nhat. |
+1. Doc file `src/config/services-config.ts` hien tai
+2. Cap nhat cac gia tri trong `landingConfig` voi thong tin nguoi dung
+3. Cau hinh mang `services` voi so luong dich vu tuong ung
+4. Cau hinh `leadForm` voi link va entry ID tu Google Form
+5. Giu placeholder neu nguoi dung khong cung cap logo
 
 ---
 
-## Buoc 6: Build va Deploy
+## Phan 3: Hoan thanh
 
-Sau khi cau hinh xong:
+Sau khi hoan thanh tat ca cau hinh:
 
-```bash
-npm run build
+1. Chay `npm run build` de dam bao khong co loi
+2. Neu co loi, thong bao cho nguoi dung va yeu cau kiem tra lai thong tin
+3. Neu thanh cong, thong bao nguoi dung:
+
 ```
-
-Output se nam trong thu muc `out/`. Up thu muc nay len:
-
-### GitHub Pages
-
-1. Tao repo moi tren GitHub
-2. Push code len
-3. Settings → Pages → Source = `Deploy from a branch` → `gh-pages` / `main`
-4. Hoac doi ten `out/` thanh `docs/` va chon `/docs`
-
-### Netlify
-
-1. Vao [netlify.com](https://netlify.com)
-2. Kéo thu muc `out/` vao
-3. Hoac ket noi GitHub repo
-
-### Vercel
-
-```bash
-npx vercel --prod
+Cau hinh hoan tat!
+Website da san sang. De xem truoc, chay npm run dev va truy cap http://localhost:3000
+Khi muon dua website len mang, hay lam theo huong dan trong README.md phan "Dua website len Internet".
 ```
 
 ---
 
-## Tom Tat Cac File Can Chinh Sua
+## Tom tat File can chinh sua
 
 | File | Muc dich |
 |------|----------|
 | `src/config/personal-info.ts` | Thong tin ca nhan, social links, background |
-| `src/config/services-config.ts` | Noi dung landing page, Google Forms |
+| `src/config/services-config.ts` | Noi dung landing page, hero, dich vu, Google Forms |
 
-## Cau Truc Route
+## Cau truc Route
 
 | Route | Mo ta |
 |-------|-------|
 | `/` | Trang chu - chon xem Bio Link hoac Landing |
 | `/bio` | Trang bio link - gioi thieu ban than + social links |
 | `/landing` | Trang landing page - gioi thieu dich vu + form lead |
-
----
-
-Neu gap kho khan, hay hoi AI Agents voi prompt:
-
-```
-Toi dang co van de voi [mo ta van de]. Hay giup toi xu ly.
-```
