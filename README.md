@@ -9,23 +9,43 @@ Mot template repo hoan chinh giup ban tao bio link va landing page chi trong vai
 - **Google Forms Integration**: Form lead tu dong dien vao Google Form cua ban - khong can backend, khong can database.
 - **AI Agent Friendly**: Chi can 2 file config de chinh sua, AI Agents se tu dong cau hinh chi voi mot prompt.
 
-## Bat dau
+---
+
+## Huong dan Setup (Chi 3 buoc)
+
+### Buoc 1: Clone repo ve may
+
+Truy cap repo tren GitHub, click nut **"Use this template"** (neu dung template) hoac clone truc tiep:
 
 ```bash
-# Clone repo
-git clone <your-repo-url>
+git clone https://github.com/ZankHuy/Sample-bio-landing.git
 cd Sample-bio-landing
+```
 
-# Cai dat
+Hoac tai file ZIP ve va giai nen.
+
+### Buoc 2: Mo repo bang Cursor (Antigravity)
+
+1. Mo **Cursor** (Antigravity) len
+2. Vao menu `File` -> `Open Folder` -> Chon thu muc `Sample-bio-landing`
+3. Mo terminal trong Cursor: `Ctrl + `` `` hoac `View` -> `Terminal`
+4. Chay lenh cai dat:
+
+```bash
 npm install
+```
 
-# Khoi dong dev server
+### Buoc 3: Khoi dong website
+
+```bash
 npm run dev
 ```
 
-Truy cap `http://localhost:3000`
+Truy cap `http://localhost:3000` de xem website.
 
-## Huong dan su dung
+---
+
+## Cau hinh noi dung (Sau khi setup xong)
 
 Xem file [SETUP.md](SETUP.md) de biet chi tiet cach cau hinh website bang AI Agents.
 
@@ -104,13 +124,71 @@ export const landingConfig = {
 };
 ```
 
-## Deploy
+---
+
+## Dua website len Internet (Deploy)
+
+Sau khi chinh sua xong noi dung, lam theo cac buoc sau de dua website len mang:
+
+### Buoc 1: Tao repo moi tren GitHub
+
+1. Truy cap [github.com](https://github.com)
+2. Dang nhap tai khoan GitHub
+3. Click nut **"+"** (dau cong) o goc phai tren -> **"New repository"**
+4. Nhap ten repo, vd: `my-brand-page`
+5. Chon **Public** (de deploy duoc)
+6. Click **"Create repository"**
+
+### Buoc 2: Ket noi va push code len repo moi
+
+Trong terminal cua Cursor, chay cac lenh sau (thay `USERNAME` bang ten tai khoan GitHub cua ban):
 
 ```bash
-npm run build
+# Xoa remote cu
+git remote remove origin
+
+# Them remote moi voi repo cua ban
+git remote add origin https://github.com/USERNAME/my-brand-page.git
+
+# Push code
+git push -u origin main
 ```
 
-Output trong thu muc `out/`. Up len GitHub Pages, Netlify, hoac Vercel.
+### Buoc 3: Deploy voi GitHub Pages (Mien phi!)
+
+1. Sau khi push thanh cong, vao **Settings** cua repo tren GitHub
+2. Cuon xuong muc **"Pages"** o than ben trai
+3. Tai muc **"Source"**, chon:
+   - **Branch**: `main`
+   - **Folder**: `/ (root)`
+4. Click **"Save"**
+5. Doi 1-2 phut, website se duoc deploy tai:
+
+```
+https://USERNAME.github.io/my-brand-page
+```
+
+> Neu muon su dung ten mien rieng, co the them custom domain trong muc **Custom domain** cua GitHub Pages.
+
+---
+
+## Lenh hay su dung
+
+```bash
+# Cai dat thu vien (sau khi clone repo)
+npm install
+
+# Khoi dong che do phat trien (xem website)
+npm run dev
+
+# Build file san sang deploy
+npm run build
+
+# Don dep file tam
+npm run clean
+```
+
+---
 
 ## Technology
 
